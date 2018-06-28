@@ -4,7 +4,6 @@ import autoBind from '../../utils/index';
 
 const defaultState = {
   name: '',
-  budget: 0,
 };
 
 class CategoryForm extends React.Component {
@@ -17,13 +16,14 @@ class CategoryForm extends React.Component {
   }
 
   handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+    const { value } = event.target;
+    this.setState({ name: value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.props.onComplete(this.state);
+    this.setState(defaultState);
   }
 
   render() {
@@ -33,15 +33,8 @@ class CategoryForm extends React.Component {
         <input 
           type='text'
           name='name'
-          placeholder='name'
+          placeholder='Category'
           value={this.state.name}
-          onChange={this.handleChange}
-        />
-         <input 
-          type='number'
-          name='budget'
-          placeholder='budget'
-          value={this.state.budget}
           onChange={this.handleChange}
         />
         <button type='submit'>{buttonText} Category</button>

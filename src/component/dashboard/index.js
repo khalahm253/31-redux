@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
       <div className='dashboard'>
         <CategoryForm onComplete={categoryCreate} />
         {
-          categories.map((currentCategory, i) => <CategoryItem category={currentCategory} key={i}/>)
+          categories.categories.map((currentCategory, i) => <CategoryItem category={currentCategory} key={i}/>) // eslint-disable-line
         }
       </div>
     );
@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
-  category: PropTypes.array,
+  category: PropTypes.object,
   categoryCreate: PropTypes.func,
 };
 
